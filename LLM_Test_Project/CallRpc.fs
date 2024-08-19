@@ -3,7 +3,7 @@
 open System
 open FsHttp
 
-//CLIENT CALLS
+//CLIENT CALL TEMPLATES
 //RPC
 
 module CallRpc =

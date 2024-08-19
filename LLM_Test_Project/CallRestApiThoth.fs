@@ -7,7 +7,7 @@ open Thoth.Json.Net
 open ThothSerializationCoders
 open ThothDeserializationCoders
 
-//CLIENT CALLS
+//CLIENT CALL TEMPLATES
 //REST API
 
 module CallRestApiThoth =
@@ -20,12 +20,14 @@ module CallRestApiThoth =
             {
                 let url = "http://localhost:8080/" 
 
-                let! responseComplete = //jen jako template
+                (*
+                let! responseComplete = //jen jako template pro obecne pripady
                     http 
                         {
                             GET url
                         }
                     |> Request.sendAsync
+                *)                
 
                 let! response = get >> Request.sendAsync <| url  
                 let! jsonString = Response.toTextAsync response 

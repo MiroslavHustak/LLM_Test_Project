@@ -49,12 +49,12 @@ module API =
     
     type OpenAIResponse =
         {
-            id: string
-            ``object``: string
-            created: int64
-            model: string
-            choices: Choice[]
-            usage: Usage
+            id : string
+            ``object`` : string
+            created : int64
+            model : string
+            choices : Choice[]
+            usage : Usage
         }    
 
     type ResultOpenAI = 
@@ -68,8 +68,7 @@ module API =
                     try
                         //git push --set-upstream origin master
                         let url = "https://api.openai.com/v1/completions"
-
-                        // Create the request payload
+                        
                         let requestPayload =
                             {
                                 model = "gpt-3.5-turbo-instruct"  
@@ -105,8 +104,7 @@ module API =
                     | ex -> return Error (string ex.Message)
                 }
 
-    // Example usage
-    let topic = "the beauty of the night sky"
+    let topic = "the beauty of pure functional programming"
 
     let result = 
         generatePoem topic AnswerIsProbablyNotNull |> Async.RunSynchronously  
