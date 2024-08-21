@@ -6,14 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ThothDeserializationCodersWeather.fs" />
-    <Compile Include="ThothDeserializationCoders.fs" />
-    <Compile Include="ThothSerializationCoders.fs" />
-    <Compile Include="CallRpc.fs" />
-    <Compile Include="CallRestApi.fs" />
-    <Compile Include="CallRestApiThoth.fs" />
-    <Compile Include="CallRestApiWeather.fs" />
-    <Compile Include="CallRestApiWeatherThoth.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
