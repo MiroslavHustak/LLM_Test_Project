@@ -21,12 +21,12 @@ module CallRestApiThoth =
                 let url = "http://localhost:8080/" 
 
                 (*
-                let! responseComplete = //jen jako template pro obecne pripady
-                    http 
-                        {
-                            GET url
-                        }
-                    |> Request.sendAsync
+                    let! responseComplete = //jen jako template pro obecne pripady
+                        http 
+                            {
+                                GET url
+                            }
+                        |> Request.sendAsync
                 *)                
 
                 let! response = get >> Request.sendAsync <| url  

@@ -130,7 +130,8 @@ module API =
                  printfn "%s" err
 
     
-    CallRestApiWeather.runRestApiWeather ()
+    //CallRestApiWeather.runRestApiWeather ()
+    CallRestApiWeatherThoth.runRestApiWeatherThoth ()
 
     Console.ReadKey() |> ignore
 

@@ -13,25 +13,25 @@ module CallRestApiWeather =
 
     type Forecast =
         {
-            Day: int
-            Temperature: string
-            Wind: string
+            Day : int
+            Temperature : string
+            Wind : string
         }
     
     type WeatherResponse = 
         {
-            Temperature: string
-            Wind: string
-            Description: string
-            Forecast: Forecast list
+            Temperature : string
+            Wind : string
+            Description : string
+            Forecast : Forecast list
         }
     
     // Function to parse the JSON response
     let private parseWeatherResponse (json: JObject) =
 
-        let temperature = json.["temperature"].ToString()
-        let wind = json.["wind"].ToString()
-        let description = json.["description"].ToString()
+        let temperature = string json.["temperature"]
+        let wind = string json.["wind"]
+        let description = string json.["description"]
         
         let forecast =
             json.["forecast"]            
@@ -39,8 +39,8 @@ module CallRestApiWeather =
                 (fun item ->
                            {
                                Day = item.["day"].ToObject<int>()
-                               Temperature = item.["temperature"].ToString()
-                               Wind = item.["wind"].ToString()
+                               Temperature = string item.["temperature"]
+                               Wind = string item.["wind"]
                            }
                 )
             |> Seq.toList
@@ -53,7 +53,7 @@ module CallRestApiWeather =
         }
     
     // Function to get the weather data
-    let private getWeather (locality: string) =
+    let private getWeather locality =
 
         let result = 
             async 
@@ -64,7 +64,7 @@ module CallRestApiWeather =
                     let! jsonString = Response.toTextAsync response                
                     let json = JObject.Parse(jsonString)
 
-                    return parseWeatherResponse(json)
+                    return parseWeatherResponse json
                 }
             |> Async.RunSynchronously  
             
@@ -79,12 +79,9 @@ module CallRestApiWeather =
         |> List.iter 
             (fun f ->
                     printfn "Day %d - Temperature: %s, Wind: %s" f.Day f.Temperature f.Wind
-            )  
+            )      
     
-    
-    let runRestApiWeather () = 
-
-        getWeather "Murmansk"
+    let runRestApiWeather () = getWeather "Klimkovice"
 
 
 (*
