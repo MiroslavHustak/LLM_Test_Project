@@ -11,6 +11,7 @@
     <Compile Include="CallRpc.fs" />
     <Compile Include="CallRestApi.fs" />
     <Compile Include="CallRestApiThoth.fs" />
+    <Compile Include="CallRestApiWeather.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

@@ -49,7 +49,8 @@ module CallRestApiThoth =
     let postToRestApi () =
         async
             {
-                let url = "http://localhost:8080/"
+                //let url = "http://localhost:8080/"
+                let url = "http://localhost:8080/api/greetings/greet"
                 
                 let payload = 
                     {

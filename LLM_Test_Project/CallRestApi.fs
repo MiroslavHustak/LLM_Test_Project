@@ -52,7 +52,8 @@ module CallRestApi =
         async
             {
                 // Define the URL of the API
-                let url = "http://localhost:8080/"
+                //let url = "http://localhost:8080/"
+                let url = "http://localhost:8080/api/greetings/greet"
                 
                 // Create the payload
                 let payload = 
@@ -152,3 +153,29 @@ module CallRestApi =
         let response3 = putToRestApi () |> Async.RunSynchronously
         printfn "Message: %s" response3.Message 
         printfn "Updated: %A" response3.UpdatedDataTableInfo
+
+
+(*
+./weather-api
+Usage
+curl http://localhost:3000/weather/{city}
+curl http://localhost:3000/weather/Curitiba
+Response
+{  
+   "temperature":"29 °C",
+   "wind":"20 km/h",
+   "description":"Partly cloudy",
+   "forecast":[  
+      {  
+         "day":1,
+         "temperature":"27 °C",
+         "wind":"12 km/h"
+      },
+      {  
+         "day":2,
+         "temperature":"22 °C",
+         "wind":"8 km/h"
+      }
+   ]
+}
+*)

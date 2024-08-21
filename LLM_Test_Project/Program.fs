@@ -68,7 +68,7 @@ module API =
                     try
                         //git push --set-upstream origin master
                         let url = "https://api.openai.com/v1/completions"
-                        
+
                         let requestPayload =
                             {
                                 model = "gpt-3.5-turbo-instruct"  
@@ -128,6 +128,9 @@ module API =
     | Error err -> 
                  printfn "%s" "Nothing worked :-("
                  printfn "%s" err
+
+    
+    CallRestApiWeather.runRestApiWeather ()
 
     Console.ReadKey() |> ignore
 
